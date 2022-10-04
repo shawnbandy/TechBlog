@@ -45,3 +45,9 @@ sequelize.sync({ force: false }).then(() => {
     )
   );
 });
+
+
+//TODO: make the routes
+//TODO: make the seeding
+//TODO: make the handlebar pages
+//TODO: add user login functionality

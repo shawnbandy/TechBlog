@@ -21,7 +21,7 @@
 
 
 ## Application Specifics
-Application must use: 
+# Application must use: 
     1. Express-handlebars
     2. MySQL2
     3. Sequelize
@@ -29,6 +29,15 @@ Application must use:
     5. Bcrypt package
     6. Express-session
     7. Connect-Session-Sequelize
+# Models
+    1. User
+        A. Has ID
+        B. Has Username
+        C. Has Password
+    2. Post
+        A. Has ID
+        B. Has Title
+        C. Has body/content
 
  
 ## Accomplished By
