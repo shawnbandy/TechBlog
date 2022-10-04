@@ -15,16 +15,9 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        body: {
+        content: {
             type: DataTypes.STRING,
             allowNull: false            
-        },
-        post_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'post',
-                key: 'id'
-            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -34,5 +27,14 @@ Post.init(
             }
         },
 
+    },
+    {
+        sequelize,
+        timestamps: true,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post'
     }
 )
+
+module.exports = Post;
