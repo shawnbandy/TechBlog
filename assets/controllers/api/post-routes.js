@@ -37,7 +37,7 @@ router.put('/edit/:id', async (req, res) => {
     }
 })
 
-route.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         deletePost = await Post.destroy({
             where: {
@@ -50,3 +50,5 @@ route.delete('/delete/:id', async (req, res) => {
         res.status(400).json(err)
     }
 })
+
+module.exports = router;
