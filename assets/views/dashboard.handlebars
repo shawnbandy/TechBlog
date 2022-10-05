@@ -1,0 +1,11 @@
+{{#if posts}}
+{{#each posts as |post|}}
+{{> dashboard-detail}}
+{{/each}}
+{{else}}
+<div class="jumbotron mt-3">
+    <h1>Hey! You don't have any posts yet.</h1>
+    <p class="lead">Why don't you add something?</p>
+    <a href="/blogpost">I'm sure your thoughts aren't so bad</a>
+</div>
+{{/if}}

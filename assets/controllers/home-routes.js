@@ -40,6 +40,53 @@ router.get('/login', async (req, res) => {
         res.render('login')
     }
 
+});
+
+router.get('/dashboard/', async (req, res) => {
+
+    try {
+
+        if (req.session.loggedIn) {
+            const currentUser = await User.findOne({
+                where: {
+                    id: req.session.userID
+                }
+            })
+            console.log(currentUser)
+        }
+
+        const postData = await Post.findAll({
+            where: {
+                user_id: req.session.userID
+            }
+        });
+
+        const posts = postData.map((content) => content.get({ plain: true }));
+
+        res.render('dashboard', {
+            posts,
+            loggedIn: req.session.loggedIn
+        })
+    }
+
+    catch (err){
+
+    }
+});
+
+router.get('/blogpost', async (req, res) => {
+   
+    try {
+
+
+        res.render('blogPost', {
+            
+        })
+    }
+
+    catch (err){
+
+    }
 })
 
 
