@@ -11,19 +11,23 @@
 
 <body>
   <header>
-    <h1>Welcome to the Four Seasons Museum</h1>
+    <h1>Welcome to the Tech Blog!</h1>
   </header>
   <nav>
     <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button class="" id="logoutBtn">Log out</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+
   </nav>
-  <main>
-    <aside>
-      <h2>Enjoy the galleries!</h2>
-    </aside>
-    <div class="gallery">
-      {{{body}}}
-    </div>
+  <main class="bg-danger row m-0 justify-content-center">
+    {{{body}}}
   </main>
+  {{#if loggedIn}}
+  <script src="./js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

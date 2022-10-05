@@ -1,0 +1,11 @@
+{{#if loggedIn}}
+{{#each posts as |post|}}
+{{> post-detail}}
+{{/each}}
+{{else}}
+<div class="jumbotron mt-3">
+    <h1>Hey! You're not logged in.</h1>
+    <p class="lead">We require that anyone accessing this site be a member.</p>
+    <a href="/login">Log in or Create an account here</a>
+</div>
+{{/if}}

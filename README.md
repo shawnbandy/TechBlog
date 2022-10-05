@@ -38,6 +38,13 @@
         A. Has ID
         B. Has Title
         C. Has body/content
+        D. References the user
+    3. Comment
+        A. Has ID
+        B. Has body/content
+        C. Has User
+        D. References the user
+        E. References the Post
 
  
 ## Accomplished By

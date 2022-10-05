@@ -22,7 +22,6 @@ class User extends Model {
             validate: {
                 isAlphanumeric: true
             },
-
         },
         password: {
             type: DataTypes.STRING,
