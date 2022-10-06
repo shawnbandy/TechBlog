@@ -51,5 +51,8 @@ sequelize.sync({ force: false }).then(() => {
 // // TODO: make the seeding
 // // TODO: make the handlebar pages
 // // TODO: add user login functionality
-//TODO: Add a dashboard that show's all of your posts
-//TODO: Add a way to create a post once on the dashboard
+// // TODO: Add a dashboard that show's all of your posts
+// // TODO: Add a way to create a post once on the dashboard
+//TODO: add a date to each post
+//TODO: allow an update for each post
+//TODO: have a comment feature on each post
