@@ -55,7 +55,7 @@
     5. Using JS files for scripting, which handles form submits, API calls, and other interactions
 
 ## Application Description
-Return to the early ages of blog posts with this complete front to back end application. Sign up or log into your account to being viewing and posting blogs. Complete with a dashboard to see your posts, ability to comment on your and other's posts, ability to edit or delete your post, and ability to see light statistics like post creation and update dates. Finally, an auto log out feature for user security. 
+Return to the early ages of blog posts with this complete front to back end application. Sign up or log into your account to begin viewing and posting blogs. Complete with a dashboard to see your posts, ability to comment on your and other's posts, ability to edit or delete your post, and ability to see light statistics like post creation and update dates. Finally, an auto log out feature for user security. 
 
 Link to Repo: https://github.com/shawnbandy/TechBlog
 
