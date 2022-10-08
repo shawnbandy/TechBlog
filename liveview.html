@@ -1,65 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVC</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MVC</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-
-</head>
-
-<body class="d-block" style="background-color: #F2E9E4;">
-  <header>
-    <h1>Welcome to the Four Seasons Museum</h1>
-  </header>
-  <nav class=" d-flex row justify-content-around" style="background-color: #9A8C98;">
-    <div class="align-bottom">
-      <a href="/">Home</a>
-      <a>test2</a>
-    </div>
-    <div class="">
-      <a href="/dashboard">test</a>
-    </div>
-  </nav>
-  <main class="row m-0 justify-content-center" style="background-color: #22223B;">
-    <section class="container row d-flex justify-content-center m-0 p-0 w-100" style="background-color: #4A4E69;">
-      <div class="mt-2 card text-center" style="background-color: #F2E9E4;">
-          <div class="mt-3 container row d-flex align-content-center" >
-            <div class="d-flex flex-column col-12 h-25 justify-content-center mb-3">
+  <body class="d-block" style="background-color: #f2e9e4">
+    <header>
+      <h1>Welcome to the Four Seasons Museum</h1>
+    </header>
+    <nav
+      class="d-flex row justify-content-around"
+      style="background-color: #9a8c98"
+    >
+      <div class="align-bottom">
+        <a href="/">Home</a>
+        <a>test2</a>
+      </div>
+      <div class="">
+        <a href="/dashboard">test</a>
+      </div>
+    </nav>
+    <main
+      class="row m-0 justify-content-center"
+      style="background-color: #22223b"
+    >
+      <section
+        class="container row d-flex justify-content-center m-0 p-0 w-100"
+        style="background-color: #4a4e69"
+      >
+        <div class="mt-2 card text-center" style="background-color: #f2e9e4">
+          <div class="mt-3 container row d-flex align-content-center">
+            <div
+              class="d-flex flex-column col-12 h-25 justify-content-center mb-3"
+            >
               <p class="m-0 col-12 font-weight-bolder">{{post.title}}</p>
               <p class="m-0 col-12">{{post.content}}</p>
-              <p class="m-0" style="font-size: smaller;">By: {{post.user.username}} on {{format_date post.createdAt}}</p>
-              <button id="addComment" class="align-self-end">Add a Comment</button>
+              <p class="m-0" style="font-size: smaller">
+                By: {{post.user.username}} on {{format_date post.createdAt}}
+              </p>
+              <button id="addComment" class="align-self-end">
+                Add a Comment
+              </button>
             </div>
           </div>
-      </div>
-      <div class="col-12">
-        <form class="form justify-content-center text-center d-flex self content" id="postForm">
-          <div class="form-group m-0 col-10 text-center">
-            <textarea class="form-control" id="commentArea" placeholder="Your Comment Here!" rows="2"></textarea>
-          </div>
-          <div class="align-self-center">
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-      <div class="mt-1 d-flex row col-8 align-items-center col-12 bg-light h-25 text-center border rounded border-dark" style="background-color: #C9ADA7;">
-        <p class="m-0 p-0 bg-light w-100 text-center">{{content}}</p>
-        <p class="text-center">By: {{user.username}}</p>
-      </div>
-      <div class="d-flex row col-8 align-items-center col-12 bg-light h-25 text-center border border-dark">
-        <p class="m-0 p-0 bg-light w-100 text-center" style="font-size: ;">{{content}}</p>
-        <p class="text-center">By: {{user.username}}</p>
-      </div>
-        {{#if loggedIn}}
-        {{#each post.comments as |comment|}}
-        {{> comment-detail}}
-        {{/each}}
-        {{/if}}
-</section>
-
-  </main>
-</body>
-
+        </div>
+        <div class="col-12">
+          <form
+            class="form justify-content-center text-center d-flex self content"
+            id="postForm"
+          >
+            <div class="form-group m-0 col-10 text-center">
+              <textarea
+                class="form-control"
+                id="commentArea"
+                placeholder="Your Comment Here!"
+                rows="2"
+              ></textarea>
+            </div>
+            <div class="align-self-center">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div
+          class="mt-1 d-flex row col-8 align-items-center col-12 bg-light h-25 text-center border rounded border-dark"
+          style="background-color: #c9ada7"
+        >
+          <p class="m-0 p-0 bg-light w-100 text-center">{{content}}</p>
+          <p class="text-center">By: {{user.username}}</p>
+        </div>
+        <div
+          class="d-flex row col-8 align-items-center col-12 bg-light h-25 text-center border border-dark"
+        >
+          <p class="m-0 p-0 bg-light w-100 text-center" style="font-size: ">
+            {{content}}
+          </p>
+          <p class="text-center">By: {{user.username}}</p>
+        </div>
+        {{#if loggedIn}} {{#each post.comments as |comment|}} {{>
+        comment-detail}} {{/each}} {{/if}}
+      </section>
+    </main>
+  </body>
 </html>

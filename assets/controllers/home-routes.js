@@ -1,19 +1,19 @@
-const router = require("express").Router();
-const sequelize = require("../config/connection");
-const { Comment, Post, User } = require("../models");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Comment, Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
         {
           model: Comment,
-          attributes: ["id", "content", "user_id"],
+          attributes: ['id', 'content', 'user_id'],
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ['username'],
         },
       ],
     });
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
     const post = postData.map((content) => content.get({ plain: true }));
     const posts = post.reverse();
 
-    res.render("homepage", {
+    res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn,
     });
@@ -31,31 +31,29 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/login", async (req, res) => {
+router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect('/');
     return;
   } else {
-    res.render("login");
+    res.render('login');
   }
 });
 
-
-router.get("/view/:id", withAuth, async (req, res) => {
-
+router.get('/view/:id', withAuth, async (req, res) => {
   req.session.loggedIn = true;
-  console.log(req.params.id)
+  console.log(req.params.id);
 
-  console.log("reached")
+  console.log('reached');
   try {
     const postData = await Post.findByPk(req.params.id, {
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ['username'],
         },
         {
           model: Comment,
@@ -63,70 +61,56 @@ router.get("/view/:id", withAuth, async (req, res) => {
           include: [
             {
               model: User,
-              attributes: ['username']
-            }
-
-          ]
+              attributes: ['username'],
+            },
+          ],
         },
-
-      ]
+      ],
     });
 
-    const testing = JSON.stringify(postData.get({plain: true}))
-    console.log(testing)
+    const testing = JSON.stringify(postData.get({ plain: true }));
+    console.log(testing);
 
-    const post = postData.get({plain: true})
+    const post = postData.get({ plain: true });
 
-    console.log("------------" + post)
+    console.log('------------' + post);
 
-    res.render("viewPost", {
+    res.render('viewPost', {
       post,
-      loggedIn: req.session.loggedIn
-    })
-
-  }
-
-  catch (err) {
-    
-  }
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {}
 });
 
-router.get("/edit/post/:id", withAuth, async (req, res) => {
-
+router.get('/edit/post/:id', withAuth, async (req, res) => {
   req.session.loggedIn = true;
-  console.log(req.params.id)
+  console.log(req.params.id);
 
   try {
     const postData = await Post.findByPk(req.params.id, {
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ['username'],
         },
-      ]
+      ],
     });
 
+    const post = postData.get({ plain: true });
 
-    const post = postData.get({plain: true})
+    console.log('------------');
 
-    console.log("------------")
-
-    res.render("blogEdit", {
+    res.render('blogEdit', {
       post,
-      loggedIn: req.session.loggedIn
-    })
-
-  }
-
-  catch (err) {
-
-  }
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {}
 });
 
-router.get("/dashboard", withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   req.session.loggedIn = true;
 
   try {
@@ -139,22 +123,22 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const post = postData.map((content) => content.get({ plain: true }));
     const posts = post.reverse();
 
-    res.render("dashboard", {
+    res.render('dashboard', {
       posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {}
 });
 
-router.get("/blogpost", withAuth, async (req, res) => {
+router.get('/blogpost', withAuth, async (req, res) => {
   req.session.loggedIn = true;
   try {
-    res.render("blogPost", {
+    res.render('blogPost', {
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
-    console.log(err)
-    res.status(500).json(err)
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
