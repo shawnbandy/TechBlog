@@ -9,27 +9,26 @@
 
 </head>
 
-<body>
-  <header>
+<body style="background-color: #F2E9E4;">
+  <header class="text-center">
     <h1>Welcome to the Tech Blog!</h1>
   </header>
-  <nav class="d-flex row justify-content-around">
-    <div>
-      <a href="/">Home</a>
+  <nav class="d-flex row justify-content-around" style="background-color: #9A8C98;">
+    <div class="align-self-end justify-content-around">
+      <a href="/" style="color: black;">Home</a>
     {{#if loggedIn}}
-      <a href="/dashboard">Dashboard</a>
-      <a href="/blogPost">Post</a>
-      <a href="/view/1">test</a>
+      <a href="/dashboard" style="color: black;">Dashboard</a>
+      <a href="/blogPost" style="color: black;">Post</a>
     </div>
     <div>
-      <button class="" id="logoutBtn">Log out</button>
+      <button class="btn bg-light" id="logoutBtn">Log out</button>
     </div>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
   </nav>
 
-  <main class="bg-danger row m-0 justify-content-center">
+  <main class="row m-0 justify-content-center" style="background-color: #22223B;">
     {{{body}}}
   </main>
   {{#if loggedIn}}

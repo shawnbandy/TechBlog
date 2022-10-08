@@ -1,9 +1,16 @@
-<section class="container row d-flex justify-content-center m-0 p-0 w-100">
-    <div class="card text-center col-12">
-        <div class="container row d-flex align-content-center justify-content-center">
+<section class="container row d-flex justify-content-center m-0 p-0 w-100" style="background-color: #4A4E69;">
+    <div class="container bg-light border border-dark row flex-direction text-center col-12 m-0 p-0" style="background-color: #F2E9E4;">
+        <div class="container row d-flex align-content-center justify-content-center col-10 m-0 p-0">
             <p class="m-0 col-12 font-weight-bolder">{{title}}</p>
             <p class="m-0 col-12">{{content}}</p>
             <p class="m-0" style="font-size: smaller;">By: You! On {{format_date createdAt}}</p>
+            <p class="m-0 col-12" style="font-size: x-small;">{{id}}</p>
+        </div>
+        <div class="d-flex align-content-center justify-content-center self-align-center col-2 h-50">
+            <button class="btn m-0 btn-primary editButton" id={{id}}>Edit</button>
+            <button class="btn m-0 btn-danger deleteButton" id={{id}}>Delete</button>
         </div>
     </div>
 </section>
+
+<script src="../js/dashboard.js"></script>

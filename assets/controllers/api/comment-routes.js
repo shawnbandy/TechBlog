@@ -3,10 +3,12 @@ const { User, Post, Comment } = require('../../models');
 
 
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const newComment = await Comment.create({
-            content: req.body.content 
+            content: req.body.content, 
+            post_id: req.body.post_id,
+            user_id: req.session.userID
         });
 
         res.status(200).json(newComment)

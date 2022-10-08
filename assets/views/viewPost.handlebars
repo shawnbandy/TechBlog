@@ -5,12 +5,13 @@
               <p class="m-0 col-12 font-weight-bolder">{{post.title}}</p>
               <p class="m-0 col-12">{{post.content}}</p>
               <p class="m-0" style="font-size: smaller;">By: {{post.user.username}} on {{format_date post.createdAt}}</p>
+              <p class="m-0 d-none" id="postID">{{post.id}}</p>
               <button id="addComment" class="align-self-end">Add a Comment</button>
             </div>
           </div>
       </div>
       <div class="col-12">
-        <form class="form justify-content-center text-center d-flex" id="postForm">
+        <form class="form justify-content-center text-center d-none" id="postForm">
           <div class="form-group m-0 col-10 text-center">
             <textarea class="form-control text-center" id="commentArea" placeholder="Your Thoughts Here!" rows="2"></textarea>
           </div>

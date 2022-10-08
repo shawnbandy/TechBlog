@@ -9,13 +9,13 @@
     6. User should be able to use same username/password whenever signing in ✅
     7. A signed in user should be able to go to the dashboard and log out ✅
     8. Existing blog posts should have a title, contents, OP's username, and date created for post ✅
-    9. Existing blog posts should be able to be commented on only by signed in users
-    10. Comments should display the comment, creator's username, and date created
+    9. Existing blog posts should be able to be commented on only by signed in users ✅
+    10. Comments should display the comment, creator's username, and date created ✅
     11. Dashboard should display created blog posts ✅ 
     12. Dashboard should allow user to create and save a new blog post ✅
     13. Blog posts should have a title and contents ✅ 
     14. After saving a blog post, user should be redirected back to the dashboard page ✅
-    15. Clicking on a blog post on the dashboard should allow the user to delete or update it
+    15. Clicking on a blog post on the dashboard should allow the user to delete or update it ✅
     16. User should be able to logout via a logout button on the dashboard ✅
     17. After a set amount of time, user should automatically be logged out ✅
 

@@ -53,6 +53,9 @@ sequelize.sync({ force: false }).then(() => {
 // // TODO: add user login functionality
 // // TODO: Add a dashboard that show's all of your posts
 // // TODO: Add a way to create a post once on the dashboard
-//TODO: add a date to each post
+// // TODO: add a date to each post
 //TODO: allow an update for each post
-//TODO: have a comment feature on each post
+// // TODO: allow to delete a post
+// // TODO: have a comment feature on each post
+//TODO: allow to delete a comment
+//TODO: allow to update a comment

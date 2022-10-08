@@ -1,0 +1,31 @@
+    <section class="container row d-flex justify-content-center m-0 p-0 w-100" style="background-color: #4A4E69;">
+      <div class="mt-2 card text-center col-12">
+          <div class="mt-3 row align-content-center">
+            <div class="d-flex flex-column col-12 h-25 justify-content-center mb-3">
+              <p class="m-0 col-12 font-weight-bolder">{{post.title}}</p>
+              <p class="m-0 col-12">{{post.content}}</p>
+              <p class="m-0 d-none" id="postID">{{post.id}}</p>
+            </div>
+          </div>
+      </div>
+    </section>
+    <section class="container d-flex w-100 text-center justify-content-center flex-column m-3 p-0" style="background-color: #4A4E69;">
+      <div class="card col-12 align-self-center" style="background-color: #F2E9E4;">
+        <form class="form justify-content-center text-center d-inline" id="postForm">
+          <div class="form-group text-center">
+            <h4>New Title</h4>
+            <input class="form-input text-center" type="text" placeholder="Title" id="newTitle"/>
+          </div>
+          <div class="form-group">
+            <h4>New Text</h4>
+            <textarea class="form-control" id="newText" placeholder="Your New Thoughts Here!" rows="3"></textarea>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+<script src="/js/blogEdit.js"></script>
+<script src="/js/logout.js"></script>

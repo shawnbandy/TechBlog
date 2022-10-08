@@ -1,16 +1,18 @@
 
-const newPostHandler = async (event) => {
+const editPostHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#title').value.trim();
-    const content = document.querySelector('#textArea').value.trim();
+    const title = document.querySelector('#newTitle').value.trim();
+    const content = document.querySelector('#newText').value.trim();
+    const id = document.querySelector('#postID').textContent
+    console.log(id)
     //const user_id = req.session.userID;
 
     console.log(`${title}, ${content}`)
 
     if (title && content){
-        const res = await fetch('/api/post/create', {
-            method: 'POST',
+        const res = await fetch(`/api/post/edit/${id}`, {
+            method: 'PUT',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' }
         });
@@ -26,4 +28,4 @@ const newPostHandler = async (event) => {
 
 document
     .querySelector('#postForm')
-    .addEventListener('submit', newPostHandler);
+    .addEventListener('submit', editPostHandler);

@@ -59,7 +59,7 @@ router.get("/view/:id", withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'content', 'user_id'],
+          attributes: ['id', 'content', 'user_id', 'createdAt'],
           include: [
             {
               model: User,
@@ -80,6 +80,41 @@ router.get("/view/:id", withAuth, async (req, res) => {
     console.log("------------" + post)
 
     res.render("viewPost", {
+      post,
+      loggedIn: req.session.loggedIn
+    })
+
+  }
+
+  catch (err) {
+    
+  }
+});
+
+router.get("/edit/post/:id", withAuth, async (req, res) => {
+
+  req.session.loggedIn = true;
+  console.log(req.params.id)
+
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      where: {
+        id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ]
+    });
+
+
+    const post = postData.get({plain: true})
+
+    console.log("------------")
+
+    res.render("blogEdit", {
       post,
       loggedIn: req.session.loggedIn
     })
